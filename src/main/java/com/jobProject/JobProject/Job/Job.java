@@ -1,11 +1,31 @@
 package com.jobProject.JobProject.Job;
 
+
+import jakarta.persistence.*;
+
+@Entity
+//@Table(name="Job_Table")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
+
+    public Job() {
+    }
+
+    public Job(long id, String title, String description, String minSalary, String maxSalary, String location) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+        this.location = location;
+    }
+
     private String location;
 
     public long getId() {
